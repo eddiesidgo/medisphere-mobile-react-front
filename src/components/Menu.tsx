@@ -23,17 +23,19 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Pacientes',
-    url: '/pacientes',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
-  },
-  {
     title: 'Home',
     url: '/',
     iosIcon: mailOutline,
     mdIcon: mailSharp
   },
+  
+  {
+    title: 'Pacientes',
+    url: '/pacientes',
+    iosIcon: mailOutline,
+    mdIcon: mailSharp
+  },
+  
 
 ];
 

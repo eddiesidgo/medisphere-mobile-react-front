@@ -53,8 +53,8 @@ const App: React.FC = () => {
             </Route> */}
 
             {/* Add your routes here */}
-            <Route path="/" component={HomePage} />
-            <Route path="/pacientes" component={PacientesPage} /> 
+            <Route path="/" exact component={HomePage} />
+            <Route path="/pacientes" exact component={PacientesPage} /> 
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
