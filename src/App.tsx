@@ -33,6 +33,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import PacientesPage from './pages/PacientesPage';
+import HomePage from './pages/HomePage';
 
 setupIonicReact();
 
@@ -43,12 +45,16 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
+            {/* <Route path="/" exact={true}>
               <Redirect to="/folder/Inbox" />
             </Route>
             <Route path="/folder/:name" exact={true}>
               <Page />
-            </Route>
+            </Route> */}
+
+            {/* Add your routes here */}
+            <Route path="/" component={HomePage} />
+            <Route path="/pacientes" component={PacientesPage} /> 
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
