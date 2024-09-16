@@ -1,11 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
 
 const Page: React.FC = () => {
-
-  const { name } = useParams<{ name: string; }>();
 
   return (
     <IonPage>
@@ -14,19 +10,20 @@ const Page: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          <IonTitle>Inicio</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name={name} />
-      </IonContent>
+      <IonContent className='ion-padding'>
+                  <div className='content-home'>BIENVENIDO A MEDIAPHERE</div>
+              <div className='circle1'>
+                                       </div>
+                <div className='circle2'>
+                                      </div>
+          <span className='circule-home1'></span>
+          <span className='circule-home2'></span>
+</IonContent>
     </IonPage>
+
   );
 };
 
