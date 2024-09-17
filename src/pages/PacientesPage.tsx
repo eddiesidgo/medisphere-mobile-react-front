@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const PacientesPage = () => {
+const PacientesPage: React.FC = () => {
   return (
     <div>
-      <h1>Pagina de pacientes</h1>
+      <h1>Página de pacientes</h1>
     </div>
-  )
+  );
 }
 
-export default PacientesPage
+export default PacientesPage;

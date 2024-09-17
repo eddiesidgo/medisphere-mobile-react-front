@@ -1,62 +1,60 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Menu from './components/Menu';
-import Page from './pages/Page';
+import PrivateRoute from './components/PrivateRoute'; // Importa el componente PrivateRoute
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/float-elements.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
 import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
 import PacientesPage from './pages/PacientesPage';
 import HomePage from './pages/HomePage';
+import Login from './Login/Login';
+import { useLocation } from 'react-router-dom';
 
 setupIonicReact();
+
+const MainContent: React.FC = () => {
+  const location = useLocation(); // Hook para obtener la ruta actual
+
+  return (
+    <>
+      {location.pathname !== '/login' ? (
+        <IonSplitPane when="(min-width: 768px)" contentId="main">
+          <Menu />
+          <IonRouterOutlet id="main">
+            {/* Proteger rutas privadas con PrivateRoute */}
+            <PrivateRoute path="/" exact component={HomePage} />
+            <PrivateRoute path="/pacientes" exact component={PacientesPage} />
+          </IonRouterOutlet>
+        </IonSplitPane>
+      ) : (
+        <IonRouterOutlet id="main">
+          {/* Ruta pública para el login */}
+          <Route path="/login" exact component={Login} />
+        </IonRouterOutlet>
+      )}
+    </>
+  );
+};
 
 const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
-            {/* <Route path="/" exact={true}>
-              <Redirect to="/folder/Inbox" />
-            </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
-            </Route> */}
-
-            {/* Add your routes here */}
-            <Route path="/" exact component={HomePage} />
-            <Route path="/pacientes" exact component={PacientesPage} /> 
-          </IonRouterOutlet>
-        </IonSplitPane>
+        <MainContent />
       </IonReactRouter>
     </IonApp>
   );

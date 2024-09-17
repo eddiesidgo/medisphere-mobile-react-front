@@ -1,13 +1,8 @@
-ion-menu ion-content {
+/* ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
-ion-menu.md ion-content {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
-}
+
 
 ion-menu.md ion-list {
   padding: 20px 0;
@@ -107,7 +102,32 @@ ion-note {
   font-size: 16px;
   color: var(--ion-color-medium-shade);
 }
-
+*/
 ion-item.selected {
   --color: var(--ion-color-primary);
-} 
+}  
+
+/* Asegúrate de que el IonContent ocupe el 100% del espacio disponible */
+ion-content {
+  height: 100%;
+  overflow-y: auto; /* Permite el scroll si el contenido es más grande */
+}
+
+/* Evita el desplazamiento hacia arriba del contenido */
+#main {
+  margin-top: 56px; /* Ajusta esto dependiendo de la altura de tu header */
+  
+}
+
+/* Asegura que el menú no empuje el contenido */
+ion-menu {
+  z-index: 10; /* Garantiza que el menú se muestre por encima */
+}
+
+ion-header {
+  position: fixed; /* Mantiene el header fijo en la parte superior */
+  width: 100%; /* Asegura que ocupe todo el ancho de la pantalla */
+  z-index: 11; /* Por encima del menú */
+}
+
+

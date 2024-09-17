@@ -1,8 +1,15 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Page.css';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import "./Page.css";
 
 const Page: React.FC = () => {
-
   return (
     <IonPage>
       <IonHeader>
@@ -13,17 +20,14 @@ const Page: React.FC = () => {
           <IonTitle>Inicio</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className='ion-padding'>
-                  <div className='content-home'>BIENVENIDO A MEDIAPHERE</div>
-              <div className='circle1'>
-                                       </div>
-                <div className='circle2'>
-                                      </div>
-          <span className='circule-home1'></span>
-          <span className='circule-home2'></span>
-</IonContent>
+      <IonContent className="ion-padding">
+        <div className="content-home">BIENVENIDO A MEDIAPHERE</div>
+        <div className="circle1"></div>
+        <div className="circle2"></div>
+        <span className="circule-home1"></span>
+        <span className="circule-home2"></span>
+      </IonContent>
     </IonPage>
-
   );
 };
 
